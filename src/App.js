@@ -1,12 +1,15 @@
+import { Provider } from 'react-redux'
+import store from './store'
+import RestaurantScreen from "./components/RestaurantScreen"
 
 
 function App() {
   return (
-    <div>
-      Hello, world
-    </div>
+    <Provider store={store}>
+      <RestaurantScreen />
+    </Provider>
   
   );
 }
 
-export default App;
+export default App
