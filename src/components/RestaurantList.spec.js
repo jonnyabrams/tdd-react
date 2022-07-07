@@ -12,7 +12,9 @@ describe('RestaurantList', () => {
   const renderComponent = (propOverrides = {}) => {
     const props = {
       loadRestaurants: jest.fn().mockName('loadRestaurants'),
-      restaurants, ...propOverrides
+      loading: false,
+      restaurants, 
+      ...propOverrides
     }
 
     loadRestaurants = props.loadRestaurants
@@ -45,7 +47,7 @@ describe('RestaurantList', () => {
     })
   
     it('does not display the loading indicator while not loading', () => {
-      renderComponent({loading: false})
+      renderComponent()
       expect(screen.queryByRole('progressbar')).not.toBeInTheDocument()
       // query methods return a null if an element is not found, whereas get methods throw an error. Because we expect to not find the element here, a query method is necessary for our assertion to succeed.
     })
